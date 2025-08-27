@@ -5,13 +5,13 @@ export default function HomePage() {
   return (
     <>
       <section className="container py-24">
-        <h1 className="text-4xl md:text-6xl font-bold">Hi, I’m Your Name.</h1>
+        <h1 className="text-4xl md:text-6xl font-bold">Hi, my name is Komut.</h1>
         <p className="mt-3 text-lg max-w-2xl text-[color:var(--muted)]">
-          Math & CS student — building data-driven systems and quant strategies.
+          2nd year Maths & CS Student @ University of Birmingham
         </p>
         <div className="mt-6 flex gap-3">
           <Link href="#projects" className="btn">View projects</Link>
-          <a className="btn btn-ghost" href="mailto:you@email.com">Email me</a>
+          <a className="btn btn-ghost" href="mailto:tauchkomut06@gmail.com">Email me</a>
         </div>
       </section>
 
@@ -19,7 +19,7 @@ export default function HomePage() {
         <h2 className="text-2xl font-semibold">Featured Projects</h2>
         <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
           <ProjectCard
-            title="Intraday Mean-Reversion Backtester"
+            title="The Spinning Raps!"
             img="/project1.png"
             alt="Backtesting dashboard"
             description="Vectorized Python backtester; 5-year sample, slippage modeled; Sharpe 1.3 OOS."
