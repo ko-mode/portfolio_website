@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg:#0b0c10; --card:#111318; --text:#e8eaed; --muted:#a0a4ab; --brand:#4f46e5;
+  }
+  html, body {
+    @apply h-full bg-[color:var(--bg)] text-[color:var(--text)] scroll-smooth;
+  }
+  a { @apply text-[color:var(--brand)] no-underline; }
+}
+
+@layer components {
+  .container { @apply max-w-5xl mx-auto px-4; }
+  .btn { @apply inline-flex items-center justify-center rounded-xl px-4 py-2 font-semibold shadow-soft bg-[color:var(--brand)] text-white; }
+  .btn-ghost { @apply border border-[color:var(--brand)] text-[color:var(--brand)] bg-transparent; }
+  .card { @apply bg-[color:var(--card)] border border-[#1a1f2b] rounded-2xl p-3 shadow-soft; }
+  .tags { @apply flex flex-wrap gap-2; }
+  .tag { @apply border border-[#2a2f3a] text-[color:var(--muted)] px-2 py-1 rounded-lg text-sm; }
+}
