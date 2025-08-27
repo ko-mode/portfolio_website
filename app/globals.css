@@ -3,27 +3,67 @@
 @tailwind components;
 @tailwind utilities;
 
+/* --- colors --- */
+:root {
+  /* light theme */
+  --bg:#f8fafc;      /* slate-50  */
+  --card:#ffffff;    /* white     */
+  --text:#0f172a;    /* slate-900 */
+  --muted:#475569;   /* slate-600 */
+  --brand:#4f46e5;   /* indigo-600*/
+  --border:#e5e7eb;  /* gray-200  */
+}
+
+/* dark theme (activated via <html data-theme="dark">) */
+[data-theme="dark"] {
+  --bg:#0b0c10; 
+  --card:#111318; 
+  --text:#e8eaed; 
+  --muted:#a0a4ab; 
+  --brand:#4f46e5; 
+  --border:#1a1f2b;
+}
+
 @layer base {
-  :root {
-    --bg:#0b0c10; --card:#111318; --text:#e8eaed; --muted:#a0a4ab; --brand:#4f46e5;
-  }
-  html, body {
-    @apply h-full bg-[color:var(--bg)] text-[color:var(--text)] scroll-smooth;
-  }
-  a { @apply text-[color:var(--brand)] no-underline; }
+  html, body { @apply h-full scroll-smooth; }
+  body { background: var(--bg); color: var(--text); }
+  a { @apply no-underline; color: var(--brand); }
+  h1, h2, h3 { @apply tracking-tight; }
 }
 
 @layer components {
   .container { @apply max-w-5xl mx-auto px-4; }
   .btn { @apply inline-flex items-center justify-center rounded-xl px-4 py-2 font-semibold shadow-soft bg-[color:var(--brand)] text-white; }
   .btn-ghost { @apply border border-[color:var(--brand)] text-[color:var(--brand)] bg-transparent; }
-  .card { @apply bg-[color:var(--card)] border border-[#1a1f2b] rounded-2xl p-3 shadow-soft; }
+  .card { @apply transition-transform hover:-translate-y-0.5 hover:shadow-lg; }
   .tags { @apply flex flex-wrap gap-2; }
   .tag { @apply border border-[#2a2f3a] text-[color:var(--muted)] px-2 py-1 rounded-lg text-sm; }
+   /* interactive feel */
+  .btn, .btn-ghost { transition: background-color .2s, color .2s, border-color .2s, transform .05s; }
+  .btn:active, .btn-ghost:active { transform: translateY(1px); }
+
+  /* ghost → solid on hover */
+  .btn-ghost:hover {
+    background: var(--brand);
+    color: white;
+    border-color: transparent;
+  }
+
+  /* optional focus ring */
+  .btn:focus-visible,
+  .btn-ghost:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--brand) 30%, white);
+  }
 }
 
 @theme {
   /* custom box-shadow token usable as `shadow-soft` */
   --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+@layer utilities {
+  .text-main { color: var(--text); }
+  .text-muted { color: var(--muted); }
 }
 

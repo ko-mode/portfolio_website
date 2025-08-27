@@ -20,11 +20,11 @@ const projects = [
   }
 ]
 
-const skills = ['Python','C/C++','SQL','Pandas/NumPy','Linux','Git']
+const skills = ['Python','C/C++','SQL','Pandas/NumPy/Polars','XGBoost','Git']
 
 const experience = [
   {
-    role: 'Investment Fund — Quant Member',
+    role: 'Quantitative Finance Vice President',
     date: '2025',
     summary: 'Led factor screen; built a small backtest framework; hosted bootcamp.'
   },
@@ -35,19 +35,59 @@ const experience = [
   }
 ]
 
+/* --- Education data --- */
+const education = [
+  {
+    degree: "BSc Mathematics & Computer Science",
+    institution: "Your University",
+    period: "2024 — Present",
+    location: "City, Country",
+    summary:
+      "Coursework focused on algorithms, data structures, probability, and linear algebra with applications to quantitative finance.",
+    modules: [
+      "Algorithms & Data Structures",
+      "Linear Algebra",
+      "Probability & Statistics",
+      "Computer Systems",
+      "Databases (SQL)"
+    ],
+    achievements: ["Dean’s List (2024/25)"],
+    activities: ["Investment Fund — Quant Member", "DofE Gold (team lead)"]
+  }
+]
+
 export default function HomePage() {
   return (
     <>
       {/* Hero */}
       <section className="container py-24">
-        <h1 className="text-4xl md:text-6xl font-bold tracking-tight">Hi, I’m Your Name.</h1>
+        <h1 className="text-4xl md:text-6xl font-bold tracking-tight">Hi! My name is Komut.</h1>
         <p className="mt-3 text-lg max-w-2xl text-[color:var(--muted)]">
-          Math & Computer Science @ University — building data-driven systems and quant strategies.
+          2nd-year Maths & Computer Science @ University of Birmingham
         </p>
-        <div className="mt-6 flex flex-wrap gap-3">
-          <Link href="#projects" className="btn">View projects</Link>
-          <a className="btn btn-ghost" href="mailto:you@email.com">Email me</a>
-        </div>
+      </section>
+
+      {/* About & Skills */}
+      <section id="about" className="container py-8">
+        <h2 className="text-2xl md:text-3xl font-semibold">About</h2>
+        <p className="mt-2 max-w-2xl text-[color:var(--muted)]">
+          2nd-year Maths & CS Student @ University of Birmingham
+        </p>
+        <ul className="tags mt-3">
+          {skills.map(s => <li key={s} className="tag">{s}</li>)}
+        </ul>
+      </section>
+
+      {/* Experience & Leadership */}
+      <section id="experience" className="container py-8">
+        <h2 className="text-2xl md:text-3xl font-semibold">Experience & Leadership</h2>
+        <ul className="mt-3 space-y-2">
+          {experience.map(e => (
+            <li key={e.role} className="text-muted">
+              <strong className="text-main">{e.role}</strong> ({e.date}) — {e.summary}
+            </li>
+          ))}
+        </ul>
       </section>
 
       {/* Projects */}
@@ -63,47 +103,20 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* About & Skills */}
-      <section id="about" className="container py-8">
-        <h2 className="text-2xl md:text-3xl font-semibold">About</h2>
-        <p className="mt-2 max-w-2xl text-[color:var(--muted)]">
-          First-year Math & CS student. Interested in systematic trading, optimization, and low-latency systems.
-        </p>
-        <ul className="tags mt-3">
-          {skills.map(s => <li key={s} className="tag">{s}</li>)}
-        </ul>
-      </section>
-
-      {/* Experience & Leadership */}
-      <section id="experience" className="container py-8">
-        <h2 className="text-2xl md:text-3xl font-semibold">Experience & Leadership</h2>
-        <ul className="mt-3 space-y-2">
-          {experience.map(e => (
-            <li key={e.role} className="text-[color:var(--muted)]">
-              <strong className="text-white">{e.role}</strong> ({e.date}) — {e.summary}
-            </li>
-          ))}
-        </ul>
-      </section>
-
       {/* Contact */}
       <section id="contact" className="container py-8">
         <h2 className="text-2xl md:text-3xl font-semibold">Contact</h2>
-        <p className="mt-2">
-          Email: <a className="underline" href="mailto:you@email.com">you@email.com</a> ·
-          {' '}GitHub: <a className="underline" href="https://github.com/youruser">youruser</a> ·
-          {' '}LinkedIn: <a className="underline" href="https://www.linkedin.com/in/youruser">youruser</a>
-        </p>
-
-        {/* If deploying on Netlify, this form works out of the box. 
-            On Vercel, use Formspree or an API route instead. */}
-        <form name="contact" method="POST" data-netlify="true" className="mt-4 grid gap-2 max-w-lg">
-          <input type="hidden" name="form-name" value="contact" />
-          <input className="card p-3" name="name" placeholder="Your name" required />
-          <input className="card p-3" type="email" name="email" placeholder="Your email" required />
-          <textarea className="card p-3" name="message" placeholder="Your message" required />
-          <button className="btn w-fit" type="submit">Send</button>
-        </form>
+          <ul className="mt-3 list-disc pl-6 space-y-1 text-[color:var(--muted)]">
+            <li>
+              Email: <a className="underline" href="mailto:you@email.com">you@email.com</a>
+            </li>
+            <li>
+              GitHub: <a className="underline" href="https://github.com/youruser" target="_blank" rel="noreferrer">youruser</a>
+            </li>
+            <li>
+              LinkedIn: <a className="underline" href="https://www.linkedin.com/in/youruser" target="_blank" rel="noreferrer">youruser</a>
+            </li>
+          </ul>
       </section>
     </>
   )
