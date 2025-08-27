@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import ProjectCard from '@/components/ProjectCard'
+import Education from '@/components/Education'
 
 const projects = [
   {
@@ -35,24 +36,48 @@ const experience = [
   }
 ]
 
-/* --- Education data --- */
+/* --- Education data (top-level accordion; Year 1/2 nested) --- */
 const education = [
   {
     degree: "BSc Mathematics & Computer Science",
-    institution: "Your University",
-    period: "2024 — Present",
-    location: "City, Country",
-    summary:
-      "Coursework focused on algorithms, data structures, probability, and linear algebra with applications to quantitative finance.",
+    institution: "University of Birmingham",
+    period: "Sep 2024 — Present",
+    location: "Birmingham, United Kingdom",
+    years: [
+      {
+        label: "Year 1",
+        modules: [
+          "Vectors, Geometry and Linear Algebra",
+          "Object-Oriented Programming",
+          "Real Analysis",
+          "Computer Systems & Professional Practice",
+          "Probability & Statistics",
+          "Data Structures and Algorithms",
+          "Mechanics"
+        ]
+      },
+      {
+        label: "Year 2",
+        modules: [
+          "Algebra & Combinatorics 1",
+          "Databases & Web Programming",
+          "Linear Algebra & Linear Programming",
+          "Functional Programming",
+          "Statistics",
+          "Security & Networks"
+        ]
+      }
+    ]
+  },
+  {
+    degree: "Summer School",
+    institution: "University College London",
+    period: "Jun 2025 — Aug 2025",
+    location: "London, United Kingdom",
     modules: [
-      "Algorithms & Data Structures",
-      "Linear Algebra",
-      "Probability & Statistics",
-      "Computer Systems",
-      "Databases (SQL)"
-    ],
-    achievements: ["Dean’s List (2024/25)"],
-    activities: ["Investment Fund — Quant Member", "DofE Gold (team lead)"]
+      "Mathematics for Machine Learning",
+      "Mathematical Finance"
+    ]
   }
 ]
 
@@ -66,6 +91,9 @@ export default function HomePage() {
           2nd-year Maths & Computer Science @ University of Birmingham
         </p>
       </section>
+
+      {/* Education (accordion) */}
+      <Education items={education} />
 
       {/* About & Skills */}
       <section id="about" className="container py-8">
@@ -106,17 +134,17 @@ export default function HomePage() {
       {/* Contact */}
       <section id="contact" className="container py-8">
         <h2 className="text-2xl md:text-3xl font-semibold">Contact</h2>
-          <ul className="mt-3 list-disc pl-6 space-y-1 text-[color:var(--muted)]">
-            <li>
-              Email: <a className="underline" href="mailto:you@email.com">you@email.com</a>
-            </li>
-            <li>
-              GitHub: <a className="underline" href="https://github.com/youruser" target="_blank" rel="noreferrer">youruser</a>
-            </li>
-            <li>
-              LinkedIn: <a className="underline" href="https://www.linkedin.com/in/youruser" target="_blank" rel="noreferrer">youruser</a>
-            </li>
-          </ul>
+        <ul className="mt-3 list-disc pl-6 space-y-1 text-[color:var(--muted)]">
+          <li>
+            Email: <a className="underline" href="mailto:you@email.com">you@email.com</a>
+          </li>
+          <li>
+            GitHub: <a className="underline" href="https://github.com/youruser" target="_blank" rel="noreferrer">youruser</a>
+          </li>
+          <li>
+            LinkedIn: <a className="underline" href="https://www.linkedin.com/in/youruser" target="_blank" rel="noreferrer">youruser</a>
+          </li>
+        </ul>
       </section>
     </>
   )
