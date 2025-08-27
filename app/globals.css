@@ -1,3 +1,4 @@
+@import "tailwindcss";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -20,3 +21,9 @@
   .tags { @apply flex flex-wrap gap-2; }
   .tag { @apply border border-[#2a2f3a] text-[color:var(--muted)] px-2 py-1 rounded-lg text-sm; }
 }
+
+@theme {
+  /* custom box-shadow token usable as `shadow-soft` */
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
