@@ -1,18 +1,3 @@
-# Next.js Portfolio Starter
+# My Personal Portfolio Website Project
 
-A minimal portfolio using Next.js (App Router) + Tailwind.
-
-## Getting Started
-```bash
-# install deps
-npm install
-
-# dev server
-npm run dev
-```
-
-Open http://localhost:3000
-
-## Deploy
-- Vercel: import the repo, keep defaults.
-- Netlify: build `next build`, publish `.next` (use Next.js runtime).
+A minimal portfolio website that uses Next.js and TailwindCSS to showcase my projects and achievements.
